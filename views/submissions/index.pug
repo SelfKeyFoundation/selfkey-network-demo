@@ -1,0 +1,42 @@
+extends ../_layout
+
+block content
+    .page-header
+        h3 Submissions
+        hr
+        //pre= submissions
+        table.table.table-striped#subTable
+            thead
+                tr
+                    th ID
+                    th Type
+                    th Status
+                    th 
+            //- tbody(style="color: #000;")
+            for item in submissions
+                tr(style="color: #000;")
+                    td= item._id
+                    if item.type == 'ido'
+                        td 
+                            a.btn.btn-danger.disabled= item.type
+                    if item.type == 'vc'
+                        td 
+                            a.btn.btn-primary.disabled= item.type
+                    if item.type == 'cert'
+                        td 
+                            a.btn.btn-info.disabled= item.type
+                    if item.status == 'init'
+                        td 
+                            a.btn.btn-info.disabled= item.status
+                    if item.status == 'accept'
+                        td 
+                            a.btn.btn-success.disabled= item.status
+                    if item.status == 'pending'
+                        td 
+                            a.btn.btn-warning.disabled= item.status
+                    if item.status == 'rejected'
+                        td 
+                            a.btn.btn-danger.disabled= item.status
+                    td 
+                        a.btn.btn-primary(href='/submission?id='+item._id) View Details
+

@@ -1,0 +1,30 @@
+extends ../_layout
+
+block content
+  .page-header
+    h3 Certifier Dashboard
+    hr
+    h3= 'Welcome, User ' + user._id
+    br
+    br
+    h3 Submissions
+    hr
+    .row.text-center
+      .col-md-4
+        h3 Verify Credentials
+        for item in submissions
+          if item.type == 'vc'
+            p= item._id
+            a.btn.btn-info(href="/submission?id="+item._id) View
+      .col-md-4
+        h3 Verify Certifiers
+        for item in submissions
+          if item.type == 'cert'
+            p= item._id
+            a.btn.btn-info(href="/submission?id="+item._id) View
+      .col-md-4
+        h3 Resolve Disputes
+        for item in submissions
+          if item.type == 'ido'
+            p= item._id
+            a.btn.btn-info(href="/submission?id="+item._id) View

@@ -1,0 +1,24 @@
+extends ../_layout
+
+block content
+  .page-header
+    h3 Select Your User Type
+
+  form.form-horizontal(action='/onboard', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right User Type
+      .col-sm-6
+        label.radio.col-sm-3
+          input(type='radio', name='usertype', value='ido', data-toggle='radio')
+          span Identity Owner
+        label.radio.col-sm-3
+          input(type='radio', name='usertype', value='certifier', data-toggle='radio')
+          span Certifier
+    .form-group
+      .col-sm-offset-3.col-sm-4
+        button.btn.btn.btn-primary(type='submit')
+          i.fa.fa-rocket
+          | &nbsp;&nbsp;Submit
+
+    

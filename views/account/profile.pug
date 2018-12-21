@@ -1,0 +1,64 @@
+extends ../_layout
+
+block content
+  .page-header
+    h3 SelfKey Network ID
+
+  form.form-horizontal(action='/account/profile', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='first_name') First Name
+      .col-sm-7
+        input.form-control(type='text', name='first_name', id='first_name', value=user.profile.first_name)
+    .form-group
+      label.col-sm-3.control-label(for='middle_name') Middle Name
+      .col-sm-7
+        input.form-control(type='text', name='middle_name', id='middle_name', value=user.profile.middle_name)
+    .form-group
+      label.col-sm-3.control-label(for='last_name') Last Name
+      .col-sm-7
+        input.form-control(type='text', name='last_name', id='last_name', value=user.profile.last_name)
+    .form-group
+      label.col-sm-3.control-label(for='email') Email Address
+      .col-sm-7
+        input.form-control(type='email', name='email', id='email', value=user.profile.email)
+    .form-group
+      label.col-sm-3.control-label(for='phone') Phone Number
+      .col-sm-7
+        input.form-control(type='phone', name='phone', id='phone', value=user.profile.phone)
+    .form-group
+      label.col-sm-3.control-label(for='address') Mailing Address
+      .col-sm-7
+        input.form-control(type='address', name='address', id='address', value=user.profile.address)
+    .form-group
+      label.col-sm-3.control-label(for='region') Region
+      .col-sm-7
+        input.form-control(type='text', name='region', id='region', value=user.profile.region)
+    .form-group
+      label.col-sm-3.control-label(for='website') National ID and Selfie
+      .col-sm-7
+        .row
+          .col-sm-6
+              h4 ID Selfie
+              img.img-responsive(src=`${imageBase}${user.address}/id_selfie.jpg`)
+          .col-sm-6
+              h4 National ID
+              img.img-responsive(src=`${imageBase}${user.address}/national_id.jpg`)
+    .form-group
+      .col-sm-offset-3.col-sm-4
+        button.btn.btn.btn-primary(type='submit')
+          i.fa.fa-pencil
+          | &nbsp;&nbsp;Update Profile
+
+  .page-header
+    h3 Delist ID
+
+  form.form-horizontal(action='/account/delete', method='POST')
+    .form-group
+      p.col-sm-offset-3.col-sm-4 You can delist your ID, but keep in mind this action is irreversible.  Your KEY token deposit will be returned to the address that made the deposit transaction.
+      input(type='hidden', name='_csrf', value=_csrf)
+      .col-sm-offset-3.col-sm-4
+        button.btn.btn-danger(type='submit')
+          i.fa.fa-trash
+          | &nbsp;&nbsp;Delist My ID From the SelfKey Network
+

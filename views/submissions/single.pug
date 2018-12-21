@@ -1,0 +1,23 @@
+extends ../_layout
+
+block content
+    .page-header
+        a.btn.btn-primary.pull-right(href='/submissions') Back to All Submissions
+        h2 Submission
+        hr
+        //pre= submission
+        h4= 'ID: ' + submission._id
+        h4= 'Created Date: ' + submission.createdAt
+        h4= 'Type: ' + submission.type
+        h4= 'Owner ID: ' + submission.owner
+        br
+        br
+        a.btn.btn-success(href="/submission/update?id="+submission._id+"&status=accept&cert="+user.id, style="margin-right: 10px;") Accept
+        a.btn.btn-danger(href="/submission/update?id="+submission._id+"&status=reject&cert="+user.id, style="margin-right: 10px;") Reject
+        a.btn.btn-info(href="/submission/update?id="+submission._id+"&status=pending&cert="+user.id) Request More Info
+        br
+        br
+        h3 Submission Data
+        hr
+        for item in submission.data
+            h4= item.label + ': ' + item.data.value

@@ -1,0 +1,44 @@
+extends ../_layout
+
+block content
+    .page-header
+        h3 Identity Owner Dashboard
+        hr
+        //pre= user
+        a.btn.btn-primary.disabled= 'DID: did:key:0x'+user.address
+        for item in user.attributes
+            if item.document === 'false'
+                h4= item.label + ': ' + item.data.value
+        br
+        br
+        .row
+            .col-sm-6
+                h4 ID Selfie
+                img.img-responsive(src=`${imagebase}${user.address}/id_selfie.jpg`)
+            .col-sm-6
+                h4 National ID
+                img.img-responsive(src=`${imagebase}${user.address}/national_id.jpg`)
+        br
+        br
+        form.form-horizontal(action='/submission', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            .form-group.row
+                label.col-md-3.col-form-label.font-weight-bold.text-right Choose a Submission Type
+                .col-sm-6
+                    label.radio.col-sm-3
+                        input(type='radio', name='submissiontype', value='vc', data-toggle='radio')
+                        span Verify Credentials
+                    label.radio.col-sm-3
+                        input(type='radio', name='submissiontype', value='cert', data-toggle='radio')
+                        span Become a Certifier
+            .form-group.row
+                hr
+                label.col-md-5.col-form-label.font-weight-bold.text-right I Agree to the <a href="/terms" target="_blank">SelfKey Trust Framework</a>
+                .col-sm-4
+                    label.radio.col-sm-3
+                    input(type='checkbox', name='agree', value='agree', data-toggle='checkbox')
+                    span &nbsp;&nbsp;Agree
+                .col-sm-3
+                    button.pull-right.btn.btn.btn-success(type='submit')
+                        i.fa.fa-rocket
+                        | &nbsp;&nbsp;Submit

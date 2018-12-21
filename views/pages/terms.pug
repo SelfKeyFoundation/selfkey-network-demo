@@ -1,0 +1,603 @@
+p.p1
+	span.s1
+		strong SelfKey Trust Framework
+p.p2
+	span.s1
+		| This document was produced by the SelfKey Foundation to become the operational trust framework for the SelfKey Network.
+p.p3  
+p.p4
+	span.s1
+		strong 1. Purpose and Principles
+p.p5
+	span.s1
+		| The purpose of the SelfKey Network is to provide
+		strong  a global public utility for self-sovereign identity 
+		| that adheres to the following principles:
+p.p6
+	span.s1
+		strong 1.1. Independence and Self-Sovereignty
+p.p5
+	span.s1
+		| An Identity Owner shall have the right to completely and permanently own and control one or more SelfKey Identities without the need to rely on any external administrative authority and without the fear that a SelfKey Identity will ever be taken away. All Private Data should be stored off the SelfKey Ledger and controlled by the Identity Owner, and only shared with other members via a secure peer-to-peer encrypted connection. Only Public Data should appear on the SelfKey Ledger.
+p.p6
+	span.s1
+		strong 1.2. Diffuse Trust
+p.p5
+	span.s1
+		| The SelfKey Foundation and the SelfKey Trust Framework shall not concentrate power in any single individual, organisation, jurisdiction, industry sector, or other special interest. Diffuse trust shall take into account all forms of diversity among Identity Owners. As a public permissioned ledger, the SelfKey Network is both an identity network and a simple trust network—a way for Identity Owners to use their SelfKey Identities to establish a basic level of trust.
+p.p6
+	span.s1
+		strong 1.3. Security by Design
+p.p5
+	span.s1
+		| The design, governance, and operation of the SelfKey Network shall follow the principles of 
+		a(href='https://en.wikipedia.org/wiki/Secure_by_design')
+			span.s2 Security by Design
+		|  to provide members with security for their SelfKey Identities and personal data to the greatest extent possible consistent with the other principles herein.
+p.p6
+	span.s1
+		strong 1.4. Privacy by Design
+p.p2
+	span.s1
+		| The design, governance, and operation of the SelfKey Network shall follow the principles of
+		span.Apple-converted-space   
+		a(href='https://en.wikipedia.org/wiki/Privacy_by_design')
+			span.s2 Privacy by Design
+		|  to provide members with privacy for their SelfKey Identities and Private Data to the greatest extent possible consistent with the other principles herein. Only the Identity Owner knows the “map” of which Identity Records and Claims and Proofs that have been shared with which Relying Parties to compose a complete SelfKey Identity. So the ultimate definition of a SelfKey Identity always remains the Identity Owner’s Private Data.
+p.p7  
+p.p6
+	span.s1
+		strong 1.5. Portability
+p.p5
+	span.s1
+		| The design, governance, and operation of the SelfKey Network shall provide members with portability of their personal data to the greatest extent possible consistent with the other principles herein.
+p.p6
+	span.s1
+		strong 1.6. Accountability
+p.p5
+	span.s1
+		| Members of the SelfKey Network shall be accountable to each other for conformance to the purpose, principles, and policies of the SelfKey Trust Framework.
+p.p6
+	span.s1
+		strong 1.7. Open by Default
+p.p5
+	span.s1
+		| The SelfKey Foundation and the SelfKey Network shall operate with full openness and transparency to the greatest extent feasible consistent with the principles herein, including the development and distribution of SelfKey Open Source Code.
+p.p6
+	span.s1
+		strong 1.8. Collective Best Interest
+p.p2
+	span.s1
+		| The SelfKey Foundation shall govern the SelfKey Network in the collective best interests of all Identity Owners and shall not favour the interests of any single Identity Owner or group of Identity Owners over the interests of the members as a whole.
+p.p4
+	span.s1
+		strong 1.9 Zero Knowledge Proof
+p.p5
+	span.s1
+		| With conventional public/private key cryptography, an Identity Record containing a Public Key may be used to verify a Proof signed with a Private Key. With Zero Knowledge Proof cryptography, Identity Owners may prove Claims about themselves (e.g., “I am over 18”, or “I have a bank account”, “I am a citizen of X country”) without revealing their identity or the underlying data behind the proof (i.e., birthday, bank account number, national ID number).
+p.p8
+	span.s1
+		strong 2. Definitions
+p.p2
+	span.s1
+		strong Claim.
+		|  A digital assertion about identity attributes made by a Claims Certifier. The entity to whom a Claim is presented is called the Relying Party. A Claim may be Public Data or Private Data.
+p.p2
+	span.s1
+		strong Claims Certifier. 
+		| The SelfKey Entity that certifies the veracity of a Claim.
+p.p2
+	span.s1
+		strong Identity Owner.
+		|  Identity Owners are one of two types: Individuals (natural persons) or Organisations (legal persons of any form, such as corporations, partnerships, LLCs, NGOs, governments, etc.). Both can be held legally responsible for their actions.
+p.p2
+	span.s1
+		strong Individual.
+		|  An Identity Owner who is a natural person. Mutually exclusive with Organisation.
+p.p2
+	span.s1
+		strong Identity Record. 
+		| A transaction on the SelfKey Network that describes a SelfKey Entity. Identity Records may include Public Keys, Claims and Proofs. Identity Records are Public Data.
+p.p2
+	span.s1
+		strong Industry Sector.
+		|  An area of distinct economic activity as defined by the World Trade Organisation.
+p.p2
+	span.s1
+		strong Jurisdiction.
+		|  A legally defined scope of authority to which an Identity Owner is bound at any one point in time.
+p.p2
+	span.s1
+		strong Organisation.
+		|  An Identity Owner who is legal person of any kind except an Individual, e.g., a group, sole proprietorship, partnership, corporation, LLC, association, NGO, government, etc. Mutually exclusive with Individual.
+p.p2
+	span.s1
+		strong Privacy by Design.
+		|  A set of seven foundational principles for taking privacy into account throughout the entire design and engineering of a system.
+p.p2
+	span.s1
+		strong Private Claim.
+		|  A Claim that is sent by the Claims Certifier as Private Data but which can be verified using Public Claims and Public Data. A Private Claim will typically use a Zero Knowledge Proof, however it may also use a Transparent Proof.
+p.p2
+	span.s1
+		strong Private Data.
+		|  Data over which an Identity Owner exerts access control. Private Data should not be stored on the SelfKey Network even when encrypted. Mutually exclusive with Public Data.
+p.p2
+	span.s1
+		strong Private Key.
+		|  The half of a cryptographic key pair designed to be kept as the Private Data of an Identity Owner. In elliptic curve cryptography, a Private Key is called a signing key.
+p.p2
+	span.s1
+		strong Proof.
+		|  Cryptographic verification of a Claim. A 
+		a(href='https://en.wikipedia.org/wiki/Digital_signature')
+			span.s2 digital signature
+		|  is a simple form of Proof. A 
+		a(href='https://en.wikipedia.org/wiki/Cryptographic_hash_function')
+			span.s2 cryptographic hash
+		|  is also a form of Proof. Proofs are one of two types: Transparent or Zero Knowledge. Transparent Proofs reveal all the information in a Claim. Zero Knowledge Proofs enable 
+		a(href='https://en.wikipedia.org/wiki/Selective_disclosure')
+			span.s2 selective disclosure
+		|  of the information in a Claim.
+p.p2
+	span.s1
+		strong Public Claim.
+		|  A Claim that is written by a Claims Certifier to the SelfKey Ledger in order to become Public Data. A Public Claim will typically use a Transparent Proof.
+p.p2
+	span.s1
+		strong Public Data.
+		|  Data over which an Identity Owner does not exert access control. All Identity Records on the SelfKey Network are Public Data. Mutually exclusive with Private Data.
+p.p2
+	span.s1
+		strong Public Key.
+		|  The half of a cryptographic key pair designed to be shared with other parties in order to decrypt or verify encrypted communications from an Identity Owner. In digital signature schemes, a public key is also called a verification key. A Public Key may be either Public Data or Private Data depending on the policies of the Identity Owner. All Public Keys published to the SelfKey Network are Public Data.
+p.p2
+	span.s1
+		strong Relying Party. 
+		| A party who relies on a Claim or Proof in order to make a trust decision about a an Identity Owner.
+p.p2
+	span.s1
+		strong SelfKey.
+		|  The primary trade mark of the SelfKey Foundation held in trust on behalf of all Members.
+p.p2
+	span.s1
+		strong SelfKey Entity.
+		|  An Entity that has one or more SelfKey Identities. A SelfKey Entity must be an Identity Owner.
+p.p2
+	span.s1
+		strong SelfKey Foundation.
+		|  The public trust organisation chartered to govern the SelfKey Network on behalf of all Identity Owners. The SelfKey Foundation website is 
+		a(href='http://www.sovrin.org')
+			span.s2 http://www.SelfKey.org
+		| .
+p.p2
+	span.s1
+		strong SelfKey Identity. 
+		| A set of Identity Records, Claims, and Proofs that describes an Identity Owner. To protect privacy: a) an Identity Owner may have more than one SelfKey Identity, and b) only the Identity Owner and the Relying Party(s) with whom a SelfKey Identity is shared knows the specific set of Identity Records, Claims, and Proofs that comprise that particular SelfKey Identity.
+p.p2
+	span.s1
+		strong SelfKey Identity Owner Agreement.
+		|  The contract between the SelfKey Foundation and an Identity Owner. See Appendix A.
+p.p2
+	span.s1
+		strong SelfKey Ledger
+		| . The distributed, continuously-replicated global cryptographic database of Identity Records maintained by the SelfKey Network.
+p.p2
+	span.s1
+		strong SelfKey Network. 
+		| The global public utility governed by the SelfKey Foundation.
+p.p2
+	span.s1
+		strong SelfKey Open Source Code.
+		|  The open source computer code base maintained by the SelfKey Network.
+p.p2
+	span.s1
+		strong SelfKey Trust Framework. 
+		| The set of business, legal, and technical policies, specifications, and contracts governing the SelfKey Network.
+p.p2
+	span.s1
+		strong Transparent Proof.
+		span.Apple-converted-space   
+		| A Proof that uses conventional digital signature scheme and therefore does not limit disclosure of information in a Claim, including the identity of the Identity Owner issuing the Proof. Mutually exclusive with Zero Knowledge Proof.
+p.p9
+	span.s1
+		strong Zero Knowledge Proof.
+		|  A Proof that uses special cryptography to permit selective disclosure of information in a set of Claims. A Zero Knowledge Proof proves that some or all of the data in a set of Claims is true without revealing any additional information, including the identity of the prover. Mutually exclusive with Transparent Proof.
+p.p10
+	span.s1
+		strong 3. General Obligations of the SelfKey Foundation
+p.p2
+	span.s1 The SelfKey Foundation shall have the obligation to:
+ol.ol1
+	li.li2
+		span.s1
+			| Develop and maintain the SelfKey Trust Framework, including the SelfKeyTrust Framework and any subsequent revisions, to govern the operation of the SelfKey Network in accordance with the purpose and principles in Section 1;
+	li.li2
+		span.s1
+			| Monitor and analyze the performance and reliability of the SelfKey Network and when necessary enforce SelfKey Trust Framework policies to ensure its continued health;
+	li.li2
+		span.s1
+			| Conduct public education and promotion of the SelfKey Network and its purpose, principles, policies, and uses; and
+	li.li9
+		span.s1
+			| Ensure the economic sustainability of the SelfKey Foundation and the SelfKey Network so as to be able to carry out these obligations on behalf of all members;
+p.p10
+	span.s1
+		strong 4. Legal Policies
+p.p5
+	span.s1
+		| The SelfKey legal agreements, to which the Selfkey Trust Framework is an annex, are contracts between members and the SelfKey Foundation that will be interpreted within the framework of existing law. The policies in this section set forth requirements for the SelfKey Legal Agreements.
+p.p8
+	span.s1
+		strong 4.1. Identity Owners
+p.p11  
+ol.ol1
+	li.li12
+		span.s1 An Identity Owner MUST be an Individual or an Organisation.
+	li.li13
+		span.s1
+			| An Identity Owner MUST agree to the SelfKey Identity Owner Agreement (Appendix A).
+p.p8
+	span.s1
+		strong 4.2. Governing Law and Disputes
+ol.ol1
+	li.li2
+		span.s1
+			| Unless otherwise mutually agreed, the SelfKey Legal Agreements and any other contracts that incorporate by reference the SelfKey Trust Framework or their successors, shall be governed and construed in accordance with the laws of the Cayman Islands. All claims relating to or arising out of such agreements, or the breach thereof, whether in contract, tort or otherwise, shall be governed by the laws of the Cayman Islands.
+	li.li2
+		span.s1
+			| Any Dispute (as defined below) under the SelfKey Legal Agreements shall be submitted to arbitration.
+			span.Apple-converted-space   
+			| To the extent that the agreement to arbitrate is ineffective or void, you agree to submit to the exclusive jurisdiction of the courts of the Cayman Islands.
+	li.li2
+		span.s1
+			| Any dispute, claim, suit, action, cause of action, demand, or proceeding arising out of or related to the SelfKey Legal Agreements (any "Dispute") that is not settled within 30 days from the date that a party notifies another party in writing of the Dispute shall be referred to and finally settled by arbitration in accordance with the provisions of the Cayman Islands Arbitration Law, 2012. 
+			span.Apple-converted-space   
+			| Further, it is agreed that:
+ul.ul1
+	li.li14
+		span.s1 the law of this section is Cayman Islands law;
+	li.li14
+		span.s1 the seat of arbitration will be the Cayman Islands;
+	li.li14
+		span.s1 the number of arbitrators will be one;
+	li.li14
+		span.s1
+			| if the parties do not agree on the arbitrator to be appointed within 30 days of the Dispute proceeding to arbitration, the arbitrator is to be appointed by the Grand Court of the Cayman Islands; and
+	li.li5
+		span.s1 the arbitration proceedings will be conducted in English
+p.p6
+	span.s1
+		strong 4.3. Confidentiality and Nondisclosure
+p.p2
+	span.s1
+		| The SelfKey Foundation operates in an environment of openness and participation. By default, the oral and written comments and contributions of participants in SelfKey meetings, online exchanges, and electronic communications should not be treated as confidential unless the contributor expressly labels them “confidential” or, in the case of oral communications, publishes to the same audience a written description of the oral remarks to be treated as confidential.
+p.p2
+	span.s1
+		| Where a participant identifies information as “confidential,” SelfKey and all participants (the “Receiving Parties”) shall treat that information for a period of five (5) years from the initial date of disclosure with the same care and discretion to avoid disclosure, publication, and dissemination outside the Receiving Parties as the Receiving Parties use in handling their own confidential information, but no less than reasonable care. The Receiving Parties may disclose the confidential information to relevant employees, affiliates, and contractors, but only subject to an obligation of confidentiality at least as restrictive as those contained herein.
+p.p2
+	span.s1
+		| These confidentiality and nondisclosure provisions shall not apply to any information that is: (1) already known by the Receiving Party prior to disclosure; (2) publicly available through no fault of the Receiving Party; (3) rightfully received without a duty of confidentiality; (4) disclosed by the disclosing party to a third party without a duty of confidentiality on such third party; (5) independently developed by the Receiving Party; (6) disclosed pursuant to the order of a court or other authorized governmental body, or as required by law, provided that the Receiving Party provides reasonable prior written notice to the disclosing party, if permitted by law, and cooperates with the disclosing party, so that the disclosing party has the opportunity to oppose any such order; or (7) disclosed by the Receiving Party with the disclosing party's prior written approval.
+p.p9
+	span.s1
+		| In the event that the SelfKey Foundation enters into nondisclosure agreements with third parties, the SelfKey Foundation shall make known to all potentially relevant participants the terms of such agreements, so as to protect any confidential information of SelfKey participants or third parties.
+p.p10
+	span.s1
+		strong 5. Technical Specifications
+p.p12
+	span.s1 The SelfKey Trust Framework relies on the following technical specifications.
+ol.ol1
+	li.li15
+		span.s4
+			a(href='https://docs.google.com/document/d/1Z-9jX4PEWtyRFD5fEyyzEnWK_0ir0no1JJLuRu8O9Gs/edit?usp=sharing')
+				span.s5 DID Data Model and Generic Syntax 1.0
+	li.li15
+		span.s4
+			a(href='https://docs.google.com/document/d/1X7dWpVvskGRpk05yyPEMd1uqaJ9FnOzoeWMdwzdIFyU/edit?usp=sharing')
+				span.s5 SelfKey DID Method Specification
+br
+br
+br
+p.p1
+	span.s1
+		strong
+			| SelfKey Identity Owner Agreement 
+			br
+			| Public Review Draft 02
+p.p2
+	span.s1 2017-03-21
+p.p2
+	span.s1
+		| Editors: Edmund Lowell & Samuel Banks & Peter Colegate
+		br
+		| Contributors: SelfKey Trust Framework Working Group
+p.p2
+	span.s1
+		strong
+			| BY REQUESTING A DECENTRALIZED IDENTIFIER (“DID”) FROM A SELFKEY TRUST ANCHOR, YOU REPRESENT THAT YOU ARE AN ADULT WITH THE LEGAL CAPACITY TO ENTER INTO THIS AGREEMENT FOR YOURSELF OR THE AUTHORITY TO ACT FOR THE INDIVIDUAL OR LEGAL PERSON NAMED IN THE APPLICATION FOR A DID, THE SELFKEY IDENTITY OWNER.
+			span.Apple-converted-space   
+			| YOU OFFER AND AGREE TO BE LEGALLY BOUND BY THE FOLLOWING TERMS AND CONDITIONS
+		| :
+p.p3
+	span.s1
+		| This SelfKey Identity Owner Agreement (“Agreement”) is entered into between the 
+		strong SelfKey Foundation
+		| , a nonprofit corporation organized under the laws of the State of Utah, United States of America, and 
+		strong Identity Owne
+		| r (“
+		strong You
+		| ”) effective on the date on which You first receive a SelfKey Identity from a SelfKey Trust Anchor, for the mutual benefit of the SelfKey Foundation, Identity Owners, Stewards, Agencies, Developers, and any other participants in the SelfKey Network, all as defined in the 
+		a(href='https://docs.google.com/document/d/1n6if3-JZw8BaRmxm3B9X5mKj_IZPHLqi_khHFOrY-XA/edit')
+			span.s2 SelfKey Provisional Trust Framework
+		|  (“PTF”), which is attached hereto as Annex 1, and in any successor SelfKey Trust Framework
+		span.Apple-converted-space   
+		| (“STF”).
+p.p4
+	span.s1
+		strong 1. Definitions
+p.p3
+	span.s1
+		| The defined terms in the PTF are included herein by reference and signalled by initial capital letters.
+p.p4
+	span.s1
+		strong 2. Obligations of the SelfKey Foundation
+p.p2
+	span.s1 The SelfKey Foundation shall:
+ol.ol1
+	li.li2
+		span.s3
+			| Develop and maintain the SelfKey Trust Framework, including the Provisional Trust Framework and any subsequent revisions, to govern the operation of the SelfKey Network in accordance with the purpose and principles in Section 2 of the PTF.
+	li.li2
+		span.s3
+			| Appoint and oversee the Technical Governance Board responsible for the development and maintenance of the SelfKey Open Source Code and the Technical Policies of the SelfKey Trust Framework in accordance with the purpose and principles in Section 2 of the PTF.
+	li.li2
+		span.s3
+			| Develop and maintain SelfKey Trust Marks as specified by the policies and procedures in the PTF.
+	li.li2
+		span.s3 Invite Stewards as specified by the policies and procedures in the PTF.
+	li.li2
+		span.s3 Invite Trust Anchors as specified by the policies and procedures in the PTF.
+	li.li2
+		span.s3 Accept Agencies who voluntarily become Members of the SelfKey Network.
+	li.li2
+		span.s3 Accept Developers who voluntarily become Members of the SelfKey Network.
+	li.li2
+		span.s3
+			| Monitor and analyze the performance and reliability of the SelfKey Network and when necessary enforce SelfKey Trust Framework policies to ensure its continued health.
+	li.li2
+		span.s3 Promptly notify Stewards of:
+	ol.ol2
+		li.li2
+			span.s3
+				| Suspected attacks, malware or other threats that could reasonably affect Stewards’ operations or equipment.
+		li.li2
+			span.s3
+				| Sanctions or changes in status affecting particular Identity Owners, Agencies, Developers, or other Stewards.
+		li.li2
+			span.s3
+				| Material changes in relevant software, technical standards, or other policies required to operate a SelfKey Node or interact with the SelfKey Ledger.
+	li.li2
+		span.s3
+			| Conduct public education and promotion of the SelfKey Network and its purpose, principles, policies, and uses.
+	li.li3
+		span.s3
+			| Ensure the economic sustainability of the SelfKey Foundation and the SelfKey Network so as to be able to carry out these obligations on behalf of all Members.
+p.p4
+	span.s1
+		strong 3. Identity Owner Obligations
+p.p2
+	span.s1
+		| You agree to the SelfKey Constitution—to uphold the purpose, principles, and policies of the SelfKey Constitution and any successor SelfKey Trust Framework, including any special policies applying to roles for which You qualify and elect—and to abide by all applicable laws and regulations.
+p.p3
+	span.s1
+		| You agree not to knowingly abuse, attack, spam, or otherwise take any malicious action against the SelfKey Network and not to knowingly interfere with the use or enjoyment of the SelfKey Network by other Members.
+p.p5
+	span.s1
+		strong 4. Trust Anchor Obligations
+p.p6
+	span.s1
+		| The obligations and privileges of Trust Anchors, and the process for designating Trust Anchors, are defined in the PTF and STF, which are incorporated herein by reference.
+p.p5
+	span.s1
+		strong 5. Guardian Obligations
+p.p3
+	span.s3
+		| The obligations and privileges of Guardians, and the process for designating Guardians, are defined in the PTF and STF, which are incorporated herein by reference.
+p.p4
+	span.s1
+		strong 6. Term and Termination
+ol.ol1
+	li.li2
+		span.s1
+			| This Agreement commences on the date first given above and terminates on the effective date of the termination of the Provisional Network and the commencement of the General Availability Network.
+	li.li3
+		span.s1
+			| Either Party may terminate this Agreement earlier by giving the other Party fifteen (15) days’ written notice (which may be by email) to the person executing the Agreement below or to another person designated by that person.
+p.p4
+	span.s1
+		strong 7. Confidentiality and Publicity
+ol.ol1
+	li.li2
+		span.s3
+			| The Parties agree to abide by any confidentiality provisions of the PTF and STF policies and procedures that apply to Identity Owners and, if You become a Guardian or Trust Anchor, those that apply to Guardians or Trust Anchors.
+	li.li3
+		span.s3
+			| The Parties agree to abide by any publicity provisions of the PTF and STF policies and procedures that apply to Identity Owners and, if You become a Guardian or Trust Anchor, those that apply to Guardians or Trust Anchors.
+p.p4
+	span.s1
+		strong 8. Intellectual Property
+p.p2
+	span.s1
+		| Each Party shall retain all rights to its own intellectual property, and this Agreement shall not be construed as a license to intellectual property rights except where it explicitly so provides.
+p.p3
+	span.s1
+		| The Parties intend that contributions by the Parties toward the development of SelfKey Trust Marks, documents, test protocols, software, and other intellectual property during the term of this Agreement will become the property of the SelfKey Foundation, to be held and used for the benefit of the SelfKey Network.
+p.p4
+	span.s1
+		strong 9. Disclaimer of Warranties
+p.p7
+	span.s4
+		| EXCEPT AS SPECIFICALLY SET FORTH HEREIN, NEITHER PARTY MAKES ANY OTHER REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, AND DISCLAIMS ALL OTHER REPRESENTATIONS AND WARRANTIES, INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ACCURACY OR COMPLETENESS OF DATA.
+p.p4
+	span.s1
+		strong 10. Limitation of Liability
+p.p3
+	span.s1
+		| IN NO EVENT SHALL THE SELFKEY FOUNDATION BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, SPECIAL, OR OTHER CONSEQUENTIAL DAMAGES ARISING OUT OF ANY BREACH OF THIS AGREEMENT, INCLUDING, WITHOUT LIMITATION, ANY LOST PROFITS, BUSINESS INTERRUPTION, LOSS OF PROGRAMS OR DATA ON YOUR EQUIPMENT, OR OTHERWISE, EVEN IF THE SELFKEY FOUNDATION IS EXPRESSLY ADVISED OF THE POSSIBILITY OR LIKELIHOOD OF SUCH DAMAGES.
+p.p4
+	span.s1
+		strong 11. Compliance with Law
+p.p3
+	span.s1
+		| Each Party shall comply with all applicable laws and shall cooperate with the other Party in complying with applicable laws and lawful subpoenas or investigative demands for records or information. 
+		span.Apple-converted-space    
+p.p4
+	span.s1
+		strong 12. Governing Law and Forum
+p.p8
+	span.s4
+		| This Agreement shall be governed and construed in accordance with the laws of Mauritius, excluding that State’s choice-of-law principles, and all claims relating to or arising out of this contract, or the breach thereof, whether sounding in contract, tort or otherwise, shall likewise be governed by the laws of Mauritius, excluding that State’s choice-of-law principles.
+p.p9
+	span.s1
+		| All disputes arising out of or in connection with the present Agreement shall be finally settled under the Rules of Arbitration of the International Chamber of Commerce by one or more arbitrators appointed in accordance with the said Rules. Unless the Parties otherwise mutually agree, such arbitration shall be conducted in the English language in Mauritius
+
+br
+br
+br
+p.p1
+	span.s1
+		strong SelfKey Claims Certifier Agreement 
+p.p2
+	span.s1
+		strong
+			| YOU REPRESENT THAT YOU ARE AN ADULT WITH THE LEGAL CAPACITY TO ENTER INTO THIS AGREEMENT FOR YOURSELF OR THE AUTHORITY TO ACT FOR THE INDIVIDUAL OR LEGAL PERSON NAMED IN THIS AGREEMENT - THE SELFKEY CLAIMS CERTIFIER. YOU OFFER AND AGREE TO BE LEGALLY BOUND BY THE FOLLOWING TERMS AND CONDITIONS
+		| :
+p.p3
+	span.s1
+		| This SelfKey Claims Certifier Agreement (“Agreement”) is entered into between (1) the 
+		strong SelfKey Foundation
+		| , a nonprofit organisation registered under the laws of Mauritius and (2) 
+		strong Claims Certifier 
+		| (“
+		strong You
+		| ”) effective on the date hereof, for the mutual benefit of the SelfKey Foundation, Identity Owners, Claims Certifiers, Relying Parties and any other participants in the SelfKey Network, all as defined in the 
+		a(href='https://docs.google.com/document/d/1n6if3-JZw8BaRmxm3B9X5mKj_IZPHLqi_khHFOrY-XA/edit')
+			span.s2 SelfKey Trust Framework 
+		|  (“STF”), which is attached hereto as Annex 1, and in any successor framework.
+p.p4
+	span.s1
+		strong 1. Definitions
+p.p3
+	span.s1 The defined terms in the STF are included herein by reference.
+p.p4
+	span.s1
+		strong 2. Obligations of the SelfKey Foundation
+p.p2
+	span.s1 The SelfKey Foundation shall:
+p.p2
+	span.s1
+		| 1. Develop and maintain the STF and any subsequent revisions, to govern the operation of the SelfKey Network in accordance with the purpose and principles set out in Section 1 of the STF.
+p.p2
+	span.s1
+		| 2. Monitor and analyse the performance and reliability of the SelfKey Network and when necessary enforce the SelfKey Trust Framework policies to ensure its continued health;
+p.p2
+	span.s1
+		| 3. Conduct public education and promotion of the SelfKey Network and its purpose, principles, policies, and uses; and
+p.p3
+	span.s1
+		| 4. Ensure the economic sustainability of the SelfKey Foundation and the SelfKey Network so as to be able to carry out these obligations on behalf of all members;
+p.p4
+	span.s1
+		strong 3. Claims Certifier Obligations
+p.p2
+	span.s1
+		| You agree to uphold the purpose, principles, and policies of the SelfKey Foundation and the STF, including any special policies applying to roles for which You qualify and elect—and to abide by all applicable laws and regulations.
+p.p3
+	span.s1
+		| You agree not to knowingly abuse, attack, spam, or otherwise take any malicious action against the SelfKey Network and not to knowingly interfere with the use or enjoyment of the SelfKey Network by other Members.
+p.p4
+	span.s1
+		strong 4. Term and Termination
+ol.ol1
+	li.li2
+		span.s1 This Agreement commences on the date first given above;
+	li.li3
+		span.s1
+			| Either Party may terminate this Agreement earlier by giving the other Party fifteen (15) days’ written notice (which may be by email) to the person executing the Agreement below or to another person designated by that person.
+p.p4
+	span.s1
+		strong 5. Confidentiality and Publicity
+ol.ol1
+	li.li2
+		span.s1
+			| The Parties agree to abide by any confidentiality provisions of the STF policies and procedures that apply to Claims Certifiers;
+	li.li3
+		span.s1
+			| The Parties agree to abide by any publicity provisions of the STF policies and procedures that apply to Claims Certifiers.
+p.p4
+	span.s1
+		strong 6. Intellectual Property
+p.p2
+	span.s1
+		| Each Party shall retain all rights to its own intellectual property, and this Agreement shall not be construed as a license to intellectual property rights except where it explicitly so provides.
+p.p3
+	span.s1
+		| The Parties intend that contributions by the Parties toward the development of SelfKey documents, test protocols, software, and other intellectual property during the term of this Agreement will become the property of the SelfKey Foundation, to be held and used for the benefit of the SelfKey Network.
+p.p4
+	span.s1
+		strong 7. Disclaimer of Warranties
+p.p5
+	span.s3
+		| EXCEPT AS SPECIFICALLY SET FORTH HEREIN, NEITHER PARTY MAKES ANY OTHER REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, AND DISCLAIMS ALL OTHER REPRESENTATIONS AND WARRANTIES, INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ACCURACY OR COMPLETENESS OF DATA.
+p.p4
+	span.s1
+		strong 8. Limitation of Liability
+p.p2
+	span.s1
+		| IN NO EVENT SHALL THE SELFKEY FOUNDATION BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, SPECIAL, OR OTHER CONSEQUENTIAL DAMAGES ARISING OUT OF ANY BREACH OF THIS AGREEMENT, INCLUDING, WITHOUT LIMITATION, ANY LOST PROFITS, BUSINESS INTERRUPTION, LOSS OF PROGRAMS OR DATA ON YOUR EQUIPMENT, OR OTHERWISE, EVEN IF THE SELFKEY FOUNDATION IS EXPRESSLY ADVISED OF THE POSSIBILITY OR LIKELIHOOD OF SUCH DAMAGES.
+p.p6
+	span.s1
+		strong 9
+		| . 
+		strong Indemnification
+p.p7  
+p.p3
+	span.s1
+		| You agree to defend, indemnify, and hold harmless the SelfKey Foundation, and its current and former officers, employees, representatives, agents, successors and assigns, from and against any and all liabilities, losses, damages, costs, and expenses (including reasonable attorneys’ fees and expenses) incurred as a result of any claim, action, or proceeding brought by a third party arising out of or relating to Your negligence, willful misconduct, misrepresentations, tortious conduct, breach of obligations under this Agreement or failure or alleged failure to comply with applicable laws, provided the SelfKey Foundation shall promptly notify You in writing of any such claim, action or proceeding, give You the opportunity to assume sole control of the defense or settlement of such claim, action or proceeding, and in that event give You all necessary information and assistance (at Your sole expense) in connection with such defense and settlement.
+p.p4
+	span.s1
+		strong 10. Compliance with Law
+p.p3
+	span.s1
+		| Each Party shall comply with all applicable laws and shall cooperate with the other Party in complying with applicable laws and lawful subpoenas or investigative demands for records or information. 
+		span.Apple-converted-space    
+p.p4
+	span.s1
+		strong 11. Governing Law and Disputes
+p.p2
+	span.s1
+		| Unless otherwise mutually agreed, this agreement shall be governed and construed in accordance with the laws of the Cayman Islands.
+p.p8  
+p.p2
+	span.s1
+		| You agree to submit any Dispute (as defined below) to arbitration.
+		span.Apple-converted-space   
+		| To the extent that the agreement to arbitrate is ineffective or void, you agree to submit to the exclusive jurisdiction of the courts of the Cayman Islands.
+p.p8  
+p.p2
+	span.s1
+		| Any dispute, claim, suit, action, cause of action, demand, or proceeding arising out of or related to the SelfKey Legal Agreements (any "Dispute") that is not settled within 30 days from the date that a party notifies another party in writing of the Dispute shall be referred to and finally settled by arbitration in accordance with the provisions of the Cayman Islands Arbitration Law, 2012. 
+		span.Apple-converted-space   
+		| Further, it is agreed that:
+ul.ul1
+	li.li9
+		span.s1 the law of this section is Cayman Islands law;
+	li.li9
+		span.s1 the seat of arbitration will be the Cayman Islands;
+	li.li9
+		span.s1 the number of arbitrators will be one;
+	li.li9
+		span.s1
+			| if the parties do not agree on the arbitrator to be appointed within 30 days of the Dispute proceeding to arbitration, the arbitrator is to be appointed by the Grand Court of the Cayman Islands; and
+	li.li3
+		span.s1 the arbitration proceedings will be conducted in English
