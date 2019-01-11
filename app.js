@@ -19,27 +19,17 @@ const favicon = require('serve-favicon')
 const consoleNotes = require('./config/config')
 
 var server = () => {
-	
 	const app = express()
-	
 	require('./db/mongoose')
-	
-	app.set('port', process.env.SK_PORT || 3007)
-	
+	app.set('port', process.env.SK_PORT || 3008)
 	app.set('views', path.join(__dirname, 'views'))
 	app.set('view engine', 'pug')
-	
 	app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
-	
 	app.use(logger('dev'))
-	
 	app.use(bodyParser.json({limit: '50mb'}))
 	app.use(bodyParser.urlencoded({limit: '50mb', extended: true }))
-	
 	app.use(expressValidator())
-	
 	app.set('trust proxy', 1)
-	
 	app.use(session({
 		resave: true,
 		saveUninitialized: true,
@@ -49,22 +39,16 @@ var server = () => {
 			autoReconnect: true
 		})
 	}))
-	
 	app.use(passport.initialize())
 	app.use(passport.session())
-	
 	app.use(flash())
-	
 	app.use(lusca.xframe('SAMEORIGIN'))
 	app.use(lusca.xssProtection(true))
-	
 	app.use((req, res, next) => {
 		res.locals.user = req.user
 		next()
 	})
-	
 	app.use(minify())
-	
 	app.use((req, res, next) => {
 		if (!req.user 
 			&& req.path !== '/login' 
@@ -77,12 +61,9 @@ var server = () => {
 		}
 		next()
 	})
-	
 	app.use(express.static(path.join(__dirname, 'public')))
 	app.use(express.static(path.join(__dirname, 'public/uploads')))
-	
 	app.get('/', (req, res) => res.render('index'))
-	
 	app.use(require('./routes/lws'))
 	app.use(require('./routes/account'))
 	app.use(require('./routes/pages'))
@@ -94,12 +75,8 @@ var server = () => {
 	app.use(require('./routes/arbiter'))
 	app.use(require('./routes/submission'))
 	app.use(require('./routes/marketplace'))
-
-	
 	app.use(errorHandler())
-	
 	app.listen(app.get('port'), () => consoleNotes(app.get('port')))
-	
 	module.exports = app
 }
 
