@@ -21,7 +21,7 @@ const consoleNotes = require('./config/config')
 var server = () => {
 	const app = express()
 	require('./db/mongoose')
-	app.set('port', process.env.SK_PORT || 3008)
+	app.set('port', 3008)
 	app.set('views', path.join(__dirname, 'views'))
 	app.set('view engine', 'pug')
 	app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))

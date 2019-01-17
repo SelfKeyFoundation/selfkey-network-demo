@@ -35,15 +35,13 @@ block content
       .col-sm-7
         input.form-control(type='text', name='region', id='region', value=user.profile.region)
     .form-group
-      label.col-sm-3.control-label(for='website') National ID and Selfie
+      label.col-sm-3.control-label(for='website') Documents
       .col-sm-7
         .row
-          .col-sm-6
-              h4 ID Selfie
-              img.img-responsive(src=`${imageBase}${user.address}/id_selfie.jpg`)
-          .col-sm-6
-              h4 National ID
-              img.img-responsive(src=`${imageBase}${user.address}/national_id.jpg`)
+          for image in images
+            .col-sm-6
+                h4 Doc
+                img.img-responsive(src=`${image.link}`)
     .form-group
       .col-sm-offset-3.col-sm-4
         button.btn.btn.btn-primary(type='submit')

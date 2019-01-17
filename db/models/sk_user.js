@@ -3,8 +3,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const cert_userSchema = new mongoose.Schema({
-	address: String,
+const sk_userSchema = new mongoose.Schema({
+	selfkey_wallet: String,
 	token: String,
 	type: String,
 	status: String,
@@ -21,6 +21,9 @@ const cert_userSchema = new mongoose.Schema({
 		industries: Array,
 		documents: Array,
 		deposit: String
+	},
+	affilliate: {
+		payout_wallet: String
 	},
 	slots: {
 		certifiers: {
@@ -40,6 +43,6 @@ const cert_userSchema = new mongoose.Schema({
 	downline: Array
 }, { timestamps: true })
 
-const cert_user = mongoose.model('cert_user', cert_userSchema)
+const sk_user = mongoose.model('sk_user', sk_userSchema)
 
-module.exports = cert_user
+module.exports = sk_user

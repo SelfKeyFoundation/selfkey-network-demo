@@ -12,17 +12,19 @@ script.
 		})
 	})
 // LWS Client Config
-script(src='https://unpkg.com/lws-js-client@1.0.0-beta.16/dist/lws.min.js')
+script(src='/lws.min.js')
 script.
 	lws.init({
-		el: '.lwsClient',
-		website: {
-			name: 'SelfKey Network',
-			url: 'http://localhost:3007',
-			termsUrl: 'http://localhost:3007/terms',
-			policyUrl: 'http://localhost:3007/privacy',
-			apiUrl: 'http://localhost:3007/api/v1/selfkey',
+		ui: {
+			el: '.lwsClient'
 		},
+		website: {
+			name: 'SelfKey Network Demo',
+			url: 'http://localhost:3008',
+			termsUrl: 'http://localhost:3008/terms',
+			policyUrl: 'http://localhost:3008/privacy'
+		},
+		rootEndpoint: '/selfkey/v2',
 		attributes: [
 			{
 				key: "first_name",
@@ -54,5 +56,5 @@ script.
 				label: "National ID",
 				attribute: "http://platform.selfkey.org/schema/attribute/national-id.json"
 			}
-		],
+		]
 	});

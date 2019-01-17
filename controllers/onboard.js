@@ -1,6 +1,6 @@
 'use strict'
 
-const User = require('../db/models/cert_user')
+const User = require('../db/models/sk_user')
 
 function getOnboard(req, res) {
 	res.render('onboard/index', {

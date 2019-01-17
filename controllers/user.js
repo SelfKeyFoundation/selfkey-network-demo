@@ -1,29 +1,31 @@
 'use strict'
 
 const passport = require('passport')
-const User = require('../db/models/cert_user')
+const User = require('../db/models/sk_user')
+const Doc = require('../db/models/sk_doc')
 
 function getLogout(req, res) {
 	req.logout()
 	res.redirect('/')
 }
 
-function getAccount(req, res) {
+async function getAccount(req, res) {
+	let images = await Doc.find({sk_did: req.user.selfkey_wallet})
 	res.render('account/profile', {
 		title: 'Account Management',
 		user: req.user,
-		address: req.user.pubKey,
+		address: req.user.selfkey_wallet,
 		attributes: req.user.attributes,
-		imageBase: process.env.SK_URL + '/uploads/'
+		images: images
 	})
 }
 
-function getWallets(req, res) {
+async function getWallets(req, res) {
 	res.render('account/wallets', {
 		user: req.user,
-		address: req.user.pubKey,
+		address: req.user.selfkey_wallet,
 		attributes: req.user.attributes,
-		imagebase: process.env.SK_URL + '/uploads/'
+		imagebase: process.env.SK_URL + '/uploads/' + req.user.selfkey_wallet + '/'
 	})
 }
 

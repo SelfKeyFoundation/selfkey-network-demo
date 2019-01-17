@@ -1,0 +1,22 @@
+extends ../_layout
+
+block content
+  .page-header
+    h3 Affiliate Account
+    hr
+    form.form-horizontal(action='/account/profile', method='POST')
+      input(type='hidden', name='_csrf', value=_csrf)
+      .form-group
+        label.col-sm-3.control-label(for='payout_wallet') Payout Wallet
+        .col-sm-7
+          input.form-control(type='text', name='payout_wallet', id='payout_wallet', value=user.affiliate.payout_wallet)
+      .form-group
+        label.col-sm-3.control-label(for='middle_name') Middle Name
+        .col-sm-7
+          input.form-control(type='text', name='middle_name', id='middle_name', value=user.profile.middle_name)
+
+      .form-group
+        .col-sm-offset-3.col-sm-4
+          button.btn.btn.btn-primary(type='submit')
+            i.fa.fa-pencil
+            | &nbsp;&nbsp;Update Profile
