@@ -53,12 +53,16 @@
     "request": "^2.88.0",
     "selfkey.js": "^1.0.24",
     "serve-favicon": "^2.5.0",
-    "web3": "^1.0.0-beta.36"
+    "web3": "^1.0.0-beta.36",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
   },
   "scripts": {
-    "dev": "nodemon app.js"
-  }
+    "dev": "nodemon app.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
